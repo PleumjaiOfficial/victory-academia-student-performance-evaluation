@@ -5,3 +5,4 @@ plotly
 python-dotenv
 openpyxl
 scikit-learn
+matplotlib
