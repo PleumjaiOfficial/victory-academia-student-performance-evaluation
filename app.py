@@ -44,6 +44,18 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# Force light theme
+st.markdown("""
+    <style>
+        [data-testid="stAppViewContainer"] {
+            background-color: #FFFFFF;
+        }
+        [data-testid="stSidebar"] {
+            background-color: #F0F2F6;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
 
 # =========================
 # Initialize Session State
@@ -455,7 +467,7 @@ def main():
     logo_path = Path(__file__).parent / "bd-logo.png"
     if logo_path.exists():
         st.image(str(logo_path), width=2000)
-        
+
     st.title("Bewdar Academy Lamphun: Student Growth Profile 📊")
 
     st.markdown("""
