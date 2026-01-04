@@ -44,18 +44,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Force light theme
-st.markdown("""
-    <style>
-        [data-testid="stAppViewContainer"] {
-            background-color: #FFFFFF;
-        }
-        [data-testid="stSidebar"] {
-            background-color: #F0F2F6;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-
 
 # =========================
 # Initialize Session State
