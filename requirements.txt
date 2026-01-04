@@ -6,3 +6,4 @@ python-dotenv
 openpyxl
 scikit-learn
 matplotlib
+IPython
