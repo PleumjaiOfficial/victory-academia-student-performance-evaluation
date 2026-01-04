@@ -14,27 +14,25 @@ import pandas as pd
 from pathlib import Path
 import plotly.graph_objects as go
 import plotly.express as px
-
-
-np.random.seed(42)
-
-# load .env file
 load_dotenv()
 
-parent_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
-print("Parent Directory: ", parent_path)
+try:
+    parent_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
+    sys.path.append(str(parent_path))
 
-path = Path(parent_path)
-path = path.resolve()
+    current_path = Path(__file__).parent
+    sys.path.append(str(current_path))
+    
+    from common.algorithms.ranking import toptalent as ranking
+    from common.algorithms.som import SOM
+    
+    print("✅ Modules loaded successfully")
+except ImportError as e:
+    st.error(f"❌ unsuccess loaded: {e}")
+    st.stop()
 
-print("Current Path: ", path)
-# add Current Path
-sys.path.append(str(path))
 warnings.filterwarnings("ignore")
 np.random.seed(42)
-
-from common.algorithms.ranking import toptalent as ranking
-from common.algorithms.som import SOM
 
 # =========================
 # Page Config
@@ -454,7 +452,10 @@ def main():
     LEVELS = ["Primary6"]
     MONTHS = ["Dec"]
 
-    st.image("bd-logo.png", width=2000)
+    logo_path = Path(__file__).parent / "bd-logo.png"
+    if logo_path.exists():
+        st.image(str(logo_path), width=2000)
+        
     st.title("Bewdar Academy Lamphun: Student Growth Profile 📊")
 
     st.markdown("""
