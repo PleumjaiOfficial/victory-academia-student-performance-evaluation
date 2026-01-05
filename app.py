@@ -236,6 +236,11 @@ def plot_learning_mode_bar(
         height=400,
     )
 
+    fig.update_layout(
+        hovermode=False,
+        dragmode=False
+    )
+
     return fig
 
 def plot_student_score_radar(
@@ -283,7 +288,16 @@ def plot_student_score_radar(
         height=500
     )
 
-    # สร้างข้อความหัวข้อที่ทดสอบ
+    fig.update_layout(
+        hovermode=False,
+        dragmode=False
+    )
+    
+    config = {
+        'displayModeBar': False,  # ซ่อน toolbar
+        'staticPlot': True  # ทำให้กราฟเป็น static
+    }
+    
     topic_lines = []
     for subj in subjects:
         topic_col = f"{subj}_TOPIC"
@@ -397,7 +411,9 @@ def plot_results_target_with_simulation(
         plot_bgcolor='white',
         template='plotly_white',
         height=700,
-        showlegend=True
+        showlegend=True,
+        hovermode=False,
+        dragmode=False
     )
 
     return fig
