@@ -465,7 +465,7 @@ def plot_ranking_comparison(df, target, top_n=20):
 # =========================
 def main():
 
-    LEVELS = ["Primary6"]
+    LEVELS = ["Primary6", "Primary4"]
     MONTHS = ["Dec"]
 
     logo_path = Path(__file__).parent / "bd-logo.png"
